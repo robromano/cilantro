@@ -24,7 +24,7 @@ define([
                 var _this = this;
 
                 this.counts.url = function() {
-                    return _this.links.counts;
+                    return _this.links.counts.uri;
                 };
                 this.counts.fetch({reset: true});
             }

@@ -41,7 +41,7 @@ define([
         },
 
         url: function() {
-            var url = this.currentUrl || this.field.links.values;
+            var url = this.currentUrl || this.field.links.values.uri;
 
             if (this.urlParams) {
                 url = url + '?' + $.param(this.urlParams);

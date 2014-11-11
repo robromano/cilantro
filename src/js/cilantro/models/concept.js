@@ -35,7 +35,7 @@ define([
 
             // Set the endpoint for related fields
             this.fields.url = function() {
-                return _this.links.fields;
+                return _this.links.fields.uri;
             };
 
             // Should only be falsy on a PUT request

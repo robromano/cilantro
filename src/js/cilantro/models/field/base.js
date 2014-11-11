@@ -37,7 +37,7 @@ define([
             if (this.links.stats) {
                 this.stats = new stats.StatCollection();
                 this.stats.url = function() {
-                    return _this.links.stats;
+                    return _this.links.stats.uri;
                 };
             }
         },
@@ -54,7 +54,7 @@ define([
         distribution: function(handler, cache) {
             if (cache !== false) cache = true;
 
-            if (this.links.distribution === undefined) {
+            if (!this.links.distribution) {
                 handler();
                 return;
             }
@@ -65,7 +65,7 @@ define([
             else {
                 var _this = this;
                 Backbone.ajax({
-                    url: this.links.distribution,
+                    url: this.links.distribution.uri,
                     dataType: 'json',
                     success: function(resp) {
                         if (cache) {
@@ -119,7 +119,7 @@ define([
                 var _this = this;
 
                 Backbone.ajax({
-                    url: this.links.values,
+                    url: this.links.values.uri,
                     data: params,
                     dataType: 'json',
                     success: function(resp) {

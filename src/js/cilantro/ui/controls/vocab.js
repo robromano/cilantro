@@ -255,10 +255,10 @@ define([
         },
 
         serializeData: function() {
-            var link = this.model.get('_links').children;
+            var link = this.model.links.children;
 
             return {
-                url: link ? link.href : null,
+                url: link ? link.uri : null,
                 label: this.model.get('label')
             };
         },
