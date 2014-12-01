@@ -32,14 +32,6 @@ define([
     var FieldModel = base.Model.extend({
         constructor: function() {
             base.Model.prototype.constructor.apply(this, arguments);
-
-            var _this = this;
-            if (this.links.stats) {
-                this.stats = new stats.StatCollection();
-                this.stats.url = function() {
-                    return _this.links.stats.uri;
-                };
-            }
         },
 
         parse: function() {
@@ -47,6 +39,15 @@ define([
 
             var attrs = base.Model.prototype.parse.apply(this, arguments);
             attrs.type = getLogicalType(attrs);
+
+
+            var _this = this;
+            if (attrs.stats_capable) {   // jshint ignore:line
+                this.stats = new stats.StatCollection();
+                this.stats.url = function() {
+                    return _this.links.stats.uri;
+                };
+            }
 
             return attrs;
         },
