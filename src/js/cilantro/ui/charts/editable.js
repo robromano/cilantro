@@ -3,11 +3,11 @@
 define([
     'jquery',
     'underscore',
-    './dist',
+    './dims',
     './axis'
-], function($, _, dist, axis) {
+], function($, _, dims, axis) {
 
-    var EditableFieldChart = dist.FieldChart.extend({
+    var EditableFieldChart = dims.FieldChart.extend({
         template: 'charts/editable-chart',
 
         toolbarAnimationTime: 200,
@@ -16,7 +16,7 @@ define([
 
         events: _.extend({
             'click .fullsize': 'toggleExpanded'
-        }, dist.FieldChart.prototype.events),
+        }, dims.FieldChart.prototype.events),
 
         ui: _.extend({
             toolbar: '.btn-toolbar',
@@ -25,7 +25,7 @@ define([
             xAxis: '[name=x-Axis]',
             yAxis: '[name=y-Axis]',
             series: '[name=series]'
-        }, dist.FieldChart.prototype.ui),
+        }, dims.FieldChart.prototype.ui),
 
         onRender: function() {
             if (this.options.editable === false) {

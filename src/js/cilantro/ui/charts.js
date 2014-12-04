@@ -2,7 +2,7 @@
 
 define([
     'underscore',
-    './charts/dist',
+    './charts/dims',
     './charts/axis',
     './charts/editable'
 ], function(_) {

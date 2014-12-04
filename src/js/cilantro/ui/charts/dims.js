@@ -95,7 +95,7 @@ define([
         onRender: function() {
             // Explicitly set the width of the chart so Highcharts knows
             // how to fill out the space. Otherwise if this element is
-            // not in the DOM by the time the distribution request is finished,
+            // not in the DOM by the time the dimensions request is finished,
             // the chart will default to an arbitary size.
             if (this.options.parentView) {
                 this.ui.chart.width(this.options.parentView.$el.width());
@@ -104,7 +104,7 @@ define([
             this.showLoadView();
 
             var _this = this;
-            this.model.distribution(
+            this.model.dimensions(
                 function(resp) {
                     if (_this.isClosed) return;
 
