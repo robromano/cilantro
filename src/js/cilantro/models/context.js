@@ -91,15 +91,14 @@ define([
                 }, this);
             });
 
+            this.on('sync', this.onSync);
+
             // Define a debounced save method for handling rapid successions
             // of [un]apply events.
             this._save = _.debounce(this.save, this.options.saveDelay);
         },
 
         onSync: function(model, resp, options) {
-            base.StatsSupportedModel.prototype.onSync.call(
-                this, model, resp, options);
-
             // Trigger Cilantro event when context is saved
             options = options || {};
 
